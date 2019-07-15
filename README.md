@@ -1,0 +1,2 @@
+# Consul template sidecar
+
