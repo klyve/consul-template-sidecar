@@ -2,10 +2,6 @@
 
 set -e
 
-#echo "HERE"
-#cat /configs/config.hcl
-
-
 
 if [ -z "$CONFIG" ]; then
     echo "No config file passed"
@@ -43,7 +39,6 @@ if [[ ! -z "$VAULT_ADDR" ]]; then
     # VAULT_TOKEN is used to authenticate against vault allowing the program to get information from vault
     export VAULT_TOKEN=$TOKEN
 fi
-#-log-level debug
 
 consul-template -config $CONFIG $FLAGS
 
