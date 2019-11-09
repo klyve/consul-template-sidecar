@@ -9,7 +9,8 @@ if [ -z "$CONFIG" ]; then
 fi
 
 if [[ ! -z "$VAULT_ADDR" ]]; then
-    SA=${VAULT_SERVICE_NAME:-"vault-auth"}
+    fallback=${SERVICE_NAME:-"vault-auth"}
+    SA=${VAULT_SERVICE_NAME:-$fallback}
     VAULT_ADDR=${VAULT_ADDR:-"http://127.0.0.1:8200"}
     SA_NS=${SA_NAMESPACE:-"default"}
 
