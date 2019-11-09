@@ -9,7 +9,7 @@ if [ -z "$CONFIG" ]; then
 fi
 
 if [[ ! -z "$VAULT_ADDR" ]]; then
-    SA=${SERVICE_NAME:-"vault-auth"}
+    SA=${VAULT_SERVICE_NAME:-"vault-auth"}
     VAULT_ADDR=${VAULT_ADDR:-"http://127.0.0.1:8200"}
     SA_NS=${SA_NAMESPACE:-"default"}
 
@@ -39,7 +39,7 @@ if [[ ! -z "$VAULT_ADDR" ]]; then
     # VAULT_TOKEN is used to authenticate against vault allowing the program to get information from vault
     export VAULT_TOKEN=$TOKEN
 fi
-
+echo "Starting consul template"
 consul-template -config $CONFIG $FLAGS
 
 echo "DONE"
